@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="Employees.Controls.EmployeesControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Employees.Controls"
+             xmlns:converters="clr-namespace:Employees.Controls.Converters"
+             mc:Ignorable="d"
+             d:DesignHeight="383.5" d:DesignWidth="309.357">
+    <UserControl.Resources>
+        <converters:DepartmentEnumConverter x:Key="DepartmentEnumConverter"/>
+
+    </UserControl.Resources>
+    <Grid>
+        <Label Content="Фамилия" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="103"/>
+        <TextBox x:Name="tbLastname" Text="{Binding Employee.LastName}" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Margin="118,10,9,0"/>
+        <Label Content="Имя" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="103"/>
+        <TextBox x:Name="tbFirstname" Text="{Binding Employee.FirstName}" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Margin="118,38,9,0"/>
+        <Label Content="Отчество" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="103"/>
+        <TextBox x:Name="tbSecondname" Text="{Binding Employee.SecondName}" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Margin="118,66,9,0"/>
+        <Label Content="Департамент" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="11,114,0,0" VerticalAlignment="Top" Width="103"/>
+        <ComboBox x:Name="cbDepardment" ItemsSource="{Binding DepartmentList}"
+                  SelectedValue="{Binding Employee.DepartmentName}"
+                  SelectedItem="{Binding SelectedValue, Converter={StaticResource DepartmentEnumConverter}, RelativeSource={RelativeSource Self}}"
+                  Margin="119,114,9,0" VerticalAlignment="Top">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=., Converter={StaticResource DepartmentEnumConverter}}"></TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+
+        </ComboBox>
+        <CheckBox x:Name="cbLocked" IsChecked="{Binding Employee.Locked}" Content="Контакт заблокирован" HorizontalAlignment="Left" Margin="118,180,0,0" VerticalAlignment="Top" Width="196"/>
+        <TextBox x:Name="tbComment" Text="{Binding Employee.Comment}" TextWrapping="Wrap" Margin="10,200,10,10"/>
+        <Label Content="Номер телефона" HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top" Width="104"/>
+        <TextBox x:Name="tbPhone" Text="{Binding Employee.Phone}" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Margin="119,142,9,0"/>
+
+
+    </Grid>
+</UserControl>
