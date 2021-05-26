@@ -58,11 +58,14 @@ namespace Employees
         {
             if (employeesListView.SelectedItems.Count < 1)
                 return;
-            EmployeeList[EmployeeList.IndexOf(SelectedEmployee)] = employeeControl.Employee;
+            if (database.Update(employeeControl.Employee) > 0)
+            {
+                EmployeeList[EmployeeList.IndexOf(SelectedEmployee)] = employeeControl.Employee;
+                MessageBox.Show("Запись успешно обновлена", "Обновление записи", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
 
                 //employeeControl.UpdateEmployee();
                 //UpdateBinding();
-
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -70,7 +73,11 @@ namespace Employees
             EmployeeEditor editor = new EmployeeEditor();
             if (editor.ShowDialog() == true)
             {
-                database.Employees.Add(editor.Employee);
+                if (database.Add(editor.Employee) > 0)
+                {
+                    MessageBox.Show("Запись успешно добавлена", "Добавление записи", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                //database.Employees.Add(editor.Employee);
                 //UpdateBinding();
             }
         }
@@ -82,7 +89,11 @@ namespace Employees
             {
                  if (MessageBox.Show("Вы действительно хотите удалить данные сотрудника?", "Удаление данных сотрудника.", MessageBoxButton.OKCancel, MessageBoxImage.Question)== MessageBoxResult.OK)
                 {
-                    database.Employees.Remove((Employee)employeesListView.SelectedItems[0]);
+                    if (database.Remove((Employee)employeesListView.SelectedItems[0]) > 0)
+                    {
+                        MessageBox.Show("Запись успешно удалена", "Удаление записи", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    //database.Employees.Remove((Employee)employeesListView.SelectedItems[0]);
                     //UpdateBinding();
                 }
             }
