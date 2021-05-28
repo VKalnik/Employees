@@ -8,11 +8,12 @@
     <OutputType>library</OutputType>
     <RootNamespace>Employees.Controls</RootNamespace>
     <AssemblyName>Employees.Controls</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,6 +53,7 @@
     <Compile Include="Converters\DepartmentEnumConverter.cs" />
     <Compile Include="Converters\DepartmentNameConverter.cs" />
     <Compile Include="Converters\LockedConverter.cs" />
+    <Compile Include="EditorType.cs" />
     <Compile Include="EmployeesControl.xaml.cs">
       <DependentUpon>EmployeesControl.xaml</DependentUpon>
     </Compile>
@@ -85,11 +87,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Employees.Data\Employees.Data.csproj">
-      <Project>{cf007c34-37ab-48bd-b522-208e91353f48}</Project>
-      <Name>Employees.Data</Name>
+    <ProjectReference Include="..\Employees.Communication\Employees.Communication.csproj">
+      <Project>{a2bca40d-454a-4671-9aec-0ce59919713d}</Project>
+      <Name>Employees.Communication</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

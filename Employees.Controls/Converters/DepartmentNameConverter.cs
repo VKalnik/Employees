@@ -1,7 +1,6 @@
-﻿using Employees.Data;
+﻿using Employees.Communication.EmployeesService;
 using System;
 using System.Globalization;
-using System.Reflection;
 using System.Windows.Data;
 
 namespace Employees.Controls.Converters
