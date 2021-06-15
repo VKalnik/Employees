@@ -1,7 +1,4 @@
-﻿using System;
-
-
-namespace Employees.Controls
+﻿namespace Employees.Controls
 {
     public enum EditorType
     {

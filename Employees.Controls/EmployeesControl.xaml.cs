@@ -1,4 +1,5 @@
-﻿using Employees.Communication.EmployeesService;
+﻿using Employees.Communication;
+using Employees.Communication.EmployeesService;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -26,7 +27,7 @@ namespace Employees.Controls
             }
         }
 
-        public ObservableCollection<Department> DepartmentList { get; set; } = new ObservableCollection<Department>();
+        public ObservableCollection<DepartmentProxy> DepartmentList { get; set; } = new ObservableCollection<DepartmentProxy>();
 
         public EmployeesControl()
         {
@@ -34,10 +35,10 @@ namespace Employees.Controls
 
             this.DataContext = this;
 
-            DepartmentList.Add(Department.General);
-            DepartmentList.Add(Department.Industrial);
-            DepartmentList.Add(Department.Personal);
-            DepartmentList.Add(Department.Financial);
+            DepartmentList.Add(DepartmentProxy.General);
+            DepartmentList.Add(DepartmentProxy.Industrial);
+            DepartmentList.Add(DepartmentProxy.Personal);
+            DepartmentList.Add(DepartmentProxy.Financial);
         }
 
         public void PrepareUI(EditorType editorType)

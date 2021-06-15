@@ -20,9 +20,9 @@
         <TextBox x:Name="tbSecondname" Text="{Binding Employee.SecondName}" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Margin="118,66,9,0"/>
         <Label Content="Департамент" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="11,114,0,0" VerticalAlignment="Top" Width="103"/>
         <ComboBox x:Name="cbDepardment" ItemsSource="{Binding DepartmentList}"
-                  SelectedValue="{Binding Employee.DepartmentName}"
-                  SelectedItem="{Binding SelectedValue, Converter={StaticResource DepartmentEnumConverter}, RelativeSource={RelativeSource Self}}"
-                  Margin="119,114,9,0" VerticalAlignment="Top">
+                    SelectedValue="{Binding Employee.DepartmentNameProxy}"
+                    SelectedItem="{Binding SelectedValue, Converter={StaticResource DepartmentEnumConverter}, RelativeSource={RelativeSource Self}}"
+                    Margin="119,114,9,0" VerticalAlignment="Top">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Path=., Converter={StaticResource DepartmentEnumConverter}}"></TextBlock>

@@ -32,7 +32,7 @@ namespace Employees.Data
         /// <summary>
         /// Номер телефона
         /// </summary>
-        public string Phone 
+        public string Phone
         {
             get { return phone; }
             set

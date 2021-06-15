@@ -1,27 +1,10 @@
 ﻿using System;
 
+
 namespace Employees.Communication.EmployeesService
 {
     public partial class Employee : ICloneable
     {
-        #region Properties
-
-        public DepartmentProxy DepartmentNameProxy
-        {
-            get
-            {
-                return (DepartmentProxy)DepartmentName;
-
-            }
-            set
-            {
-                DepartmentName = (Department)value;
-                this.RaisePropertyChanged("DepartmentNameProxy");
-            }
-        }
-
-        #endregion
-
 
         #region Constructors
 
@@ -48,9 +31,7 @@ namespace Employees.Communication.EmployeesService
 
 
         #endregion
-
-
-
+        
         public object Clone()
         {
             return this.MemberwiseClone();

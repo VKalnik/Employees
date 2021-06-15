@@ -21,7 +21,7 @@ namespace Employees
             editorType = EditorType.Add;
             employeesControl.Employee = Employee;
             PrepareUI();
-            
+
         }
         public EmployeeEditor(EditorType editorType)
         {

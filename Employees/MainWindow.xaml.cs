@@ -14,9 +14,9 @@ namespace Employees
         private EmployeeDatabase database = new EmployeeDatabase();
 
         public ObservableCollection<Employee> EmployeeList { get; set; }
-        
-        public Employee SelectedEmployee { get; set; }        
-        
+
+        public Employee SelectedEmployee { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -24,12 +24,12 @@ namespace Employees
             this.DataContext = this;
 
             EmployeeList = database.Employees;
-     
+
         }
 
         private void employeesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           if ( e.AddedItems.Count > 0)
+            if (e.AddedItems.Count > 0)
             {
                 employeeControl.Employee = (Employee)SelectedEmployee.Clone();
                 //employeeControl.SetEmployee((Employee)e.AddedItems[0]);
@@ -53,8 +53,8 @@ namespace Employees
                 MessageBox.Show("Запись успешно обновлена", "Обновление записи", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
-                //employeeControl.UpdateEmployee();
-                //UpdateBinding();
+            //employeeControl.UpdateEmployee();
+            //UpdateBinding();
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -73,10 +73,10 @@ namespace Employees
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            
+
             if (employeesListView.SelectedItems.Count > 0)
             {
-                 if (MessageBox.Show("Вы действительно хотите удалить данные сотрудника?", "Удаление данных сотрудника.", MessageBoxButton.OKCancel, MessageBoxImage.Question)== MessageBoxResult.OK)
+                if (MessageBox.Show("Вы действительно хотите удалить данные сотрудника?", "Удаление данных сотрудника.", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
                 {
                     if (database.Remove((Employee)employeesListView.SelectedItems[0]) > 0)
                     {
